@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>浪浪日記 | 流浪貓咪狗狗的義賣花園</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <nav class="navbar">
+        <ul>
+            <li><a href="index.html">首頁</a></li>
+            <li><a href="diary.html">救援日記</a></li>
+            <li><a href="gallery.html">相片庫</a></li>
+            <li><a href="founder.html">Sara的故事</a></li>
+            <li><a href="index.html#contact">聯絡我們</a></li>
+            <li style="float: right;"><a href="cart.html">查看購物車🛒</a></li>
+        </ul>
+    </nav>
+
+    <main class="diary-page">
+        <h1>浪浪日記</h1>
+        <p class="photo-tip">📸 點擊圖片可放大查看喔～</p>
+
+                <div class="diary-entry">
+            <p class="date">2025-07-01</p>
+            <div class="diary-photos">
+                <img src="images/7_1.jpg" alt="照片" onclick="showLarge(this)">
+                <img src="images/7_1_2.jpg" alt="照片" onclick="showLarge(this)">
+                <img src="images/7_1_3.jpg" alt="照片" onclick="showLarge(this)">
+                <img src="images/7_1_4.jpg" alt="照片" onclick="showLarge(this)">
+                <img src="images/7_1_5.jpg" alt="照片" onclick="showLarge(this)">
+
+            </div>
+            
+            <p>39.8度發高燒😢醫生交代要按時餵藥觀察食欲😰
+                （每天吃兩次藥，先吃三天看病情有沒有好轉）
+                （醫療費730伙食882）</p>
+        </div>
+        <div class="diary-entry">
+            <p class="date">2025-06-30</p>
+            <div class="diary-photos">
+                <img src="images/6_30.jpg" alt="照片" onclick="showLarge(this)">
+                <img src="images/6_30_3.jpg" alt="照片" onclick="showLarge(this)">
+            </div>
+            <!-- 放大圖片的彈窗 -->
+            <div id="imageModal" class="image-modal" onclick="closeLarge()">
+                <img id="modalImg" class="modal-img" src="" alt="">
+            </div>
+            <p>這幾週為了抓紮路邊的母浪貓而捕到的小幼貓的醫療費很多😱
+                目前近幾日的醫療費用共一萬元有困難😓😓😓
+                希望好朋友能踴躍購買義賣的商品，
+                所有微薄的利潤都會全部貼補分期的醫療費用🙏🏻
+                目前義賣的好吃的：蜂梨糖、西施芒果、忘清香芒果、紅龍果、新鮮水果乾、情人果冰😍</p>
+        </div>
+
+        <!-- 更多 diary-entry 可複製新增 -->
+    </main>
+</body>
+
+<script>
+    function showLarge(img) {
+        const modal = document.getElementById("imageModal");
+        const modalImg = document.getElementById("modalImg");
+        modalImg.src = img.src;
+        modal.style.display = "flex";
+    }
+
+    function closeLarge() {
+        document.getElementById("imageModal").style.display = "none";
+    }
+</script>
+
+</html>
