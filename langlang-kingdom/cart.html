@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+  <meta charset="UTF-8">
+  <title>購物車｜流浪貓咪狗狗的義賣花園</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <h1>🐾 購物車清單</h1>
+  <ul id="cart-list"></ul>
+
+  <form action="https://formsubmit.co/liumiai0704@gmail.com" method="POST" autocomplete="off">
+    <h3>請留下聯絡資料</h3>
+    <label>姓名：<input type="text" name="name" required></label><br>
+    <label>聯絡方式（Line / FB / Email / 電話）：<input type="text" name="contact" required></label><br>
+    <input type="hidden" name="cartData" id="cartDataField">
+    <!-- 隱藏欄位讓表單送出後不跳頁 -->
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_subject" value="義賣花園新訂單！">
+    <input type="hidden" name="_next" value="thankyou.html">
+    <button type="submit">📩 送出購物單</button>
+  </form>
+
+  <p style="margin-top: 1rem;">
+    或 👉 <a href="https://www.facebook.com/sara.liu.70621" target="_blank">用 Messenger 聯絡我</a>
+  </p>
+
+  <script>
+    // 顯示購物車內容
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+    const list = document.getElementById("cart-list");
+    const cartDataField = document.getElementById("cartDataField");
+
+    if (cart.length === 0) {
+      list.innerHTML = "<li>目前購物車是空的喔！</li>";
+    } else {
+      let summary = "";
+      cart.forEach((item, index) => {
+        let li = document.createElement("li");
+        li.innerHTML = `${index + 1}. ${item.name} x${item.qty} 
+          <button onclick="removeItem(${index})">🗑 刪除</button>`;
+        list.appendChild(li);
+        summary += `${item.name} x${item.qty}\n`;
+      });
+      cartDataField.value = summary;
+    }
+
+    function removeItem(index) {
+      cart.splice(index, 1);
+      localStorage.setItem("cart", JSON.stringify(cart));
+      location.reload();
+    }
+  </script>
+</body>
+
+</html>
