@@ -36,15 +36,12 @@
     if (cart.length === 0) {
       list.innerHTML = "<li>目前購物車是空的喔！</li>";
     } else {
-      let summary = "";
       cart.forEach((item, index) => {
-        let li = document.createElement("li");
-        li.innerHTML = `${index + 1}. ${item.name} x${item.qty} 
-          <button onclick="removeItem(${index})">🗑 刪除</button>`;
-        list.appendChild(li);
-        summary += `${item.name} x${item.qty}\n`;
-      });
-      cartDataField.value = summary;
+      let li = document.createElement("li");
+      li.innerHTML = `${index + 1}. ${item.name} x${item.qty} 
+        <button onclick="removeItem(${index})">🗑 刪除</button>`;
+      list.appendChild(li);
+    });
     }
 
     function removeItem(index) {
@@ -75,7 +72,7 @@
 
     window.location.href = finalUrl;
 
-    alert("表單已打開，請確認送出！");
+    //alert("表單已打開，請確認送出！");
   });
   
   </script>
