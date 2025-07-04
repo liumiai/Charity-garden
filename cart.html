@@ -31,7 +31,7 @@
     // 顯示購物車內容
     const cart = JSON.parse(localStorage.getItem("cart")) || [];
     const list = document.getElementById("cart-list");
-    const cartDataField = document.getElementById("cartDataField");
+    
 
     if (cart.length === 0) {
       list.innerHTML = "<li>目前購物車是空的喔！</li>";
@@ -73,7 +73,7 @@
 
     const finalUrl = `${baseUrl}?entry.1309453478=${encodeURIComponent(summary)}&entry.464998322=${encodeURIComponent(name)}&entry.940145478=${encodeURIComponent(contact)}`;
 
-    window.open(finalUrl, "_blank");
+    window.location.href = finalUrl;
 
     alert("表單已打開，請確認送出！");
   });
