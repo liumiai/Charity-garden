@@ -11,18 +11,20 @@
   <h1>🐾 購物車清單</h1>
   <ul id="cart-list"></ul>
 
-  <form id="googleForm" action="https://docs.google.com/forms/d/e/1FAIpQLSdxz_zaYyigsjkLCC8wGLPaeUKaAz55Vv54ugwZQSHMgUvjbA/formResponse" method="POST" target="_blank">
-  <h3>請留下聯絡資料</h3>
-  <label>姓名：
-    <input type="text" name="entry.464998322" id="userName" required>
-  </label><br>
-  <label>聯絡方式（FB / IG皆可）：
-    <input type="text" name="entry.940145478" id="userContact" required>
-  </label><br>
-  <input type="hidden" name="entry.1309453478" id="cartSummary">
-  <button type="submit">📩 送出購物單</button>
+  <form id="googleForm" 
+        action="https://docs.google.com/forms/d/e/1FAIpQLSdxz_zaYyigsjkLCC8wGLPaeUKaAz55Vv54ugwZQSHMgUvjbA/formResponse" 
+        method="POST"
+        target="_blank">
+    <h3>請留下聯絡資料</h3>
+    <label>姓名：
+      <input type="text" name="entry.464998322" id="userName" required>
+    </label><br>
+    <label>聯絡方式（FB / IG皆可）：
+      <input type="text" name="entry.940145478" id="userContact" required>
+    </label><br>
+    <input type="hidden" name="entry.1309453478" id="cartSummary">
+    <button type="submit">📩 送出購物單</button>
   </form>
-
 
   <p style="margin-top: 1rem;">
     或 👉 <a href="https://www.facebook.com/sara.liu.70621" target="_blank">用 Messenger 聯絡我</a>
@@ -32,17 +34,16 @@
     // 顯示購物車內容
     const cart = JSON.parse(localStorage.getItem("cart")) || [];
     const list = document.getElementById("cart-list");
-    
 
     if (cart.length === 0) {
       list.innerHTML = "<li>目前購物車是空的喔！</li>";
     } else {
       cart.forEach((item, index) => {
-      let li = document.createElement("li");
-      li.innerHTML = `${index + 1}. ${item.name} x${item.qty} 
-        <button onclick="removeItem(${index})">🗑 刪除</button>`;
-      list.appendChild(li);
-    });
+        let li = document.createElement("li");
+        li.innerHTML = `${index + 1}. ${item.name} x${item.qty} 
+          <button onclick="removeItem(${index})">🗑 刪除</button>`;
+        list.appendChild(li);
+      });
     }
 
     function removeItem(index) {
@@ -51,32 +52,22 @@
       location.reload();
     }
 
-    //填表單
     const form = document.getElementById("googleForm");
+    
+    form.addEventListener("submit", function(e) {
+      const name = document.getElementById("userName").value;
+      const contact = document.getElementById("userContact").value;
 
-  form.addEventListener("submit", function (e) {
-    e.preventDefault();
+      if (!name || !contact || cart.length === 0) {
+        alert("請填寫姓名、聯絡方式，並加入至少一項商品！");
+        e.preventDefault();
+        return;
+      }
 
-    const name = document.getElementById("userName").value;
-    const contact = document.getElementById("userContact").value;
-
-    if (!name || !contact || cart.length === 0) {
-      alert("請填寫姓名、聯絡方式，並加入至少一項商品！");
-      return;
-    }
-
-    let summary = cart.map(item => `${item.name} x${item.qty}`).join('\n');
-
-    const baseUrl = "https://docs.google.com/forms/d/e/1FAIpQLSdxz_zaYyigsjkLCC8wGLPaeUKaAz55Vv54ugwZQSHMgUvjbA/formResponse";
-
-    const finalUrl = `${baseUrl}?entry.1309453478=${encodeURIComponent(summary)}&entry.464998322=${encodeURIComponent(name)}&entry.940145478=${encodeURIComponent(contact)}`;
-
-    window.location.href = finalUrl;
-
-    //alert("表單已打開，請確認送出！");
-  });
-  
+      let summary = cart.map(item => `${item.name} x${item.qty}`).join('\n');
+      document.getElementById("cartSummary").value = summary;
+      
+    });
   </script>
 </body>
-
 </html>
