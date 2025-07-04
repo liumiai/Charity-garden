@@ -11,16 +11,17 @@
   <h1>🐾 購物車清單</h1>
   <ul id="cart-list"></ul>
 
-  <form id="googleForm" target="_blank">
+  <form id="googleForm" action="https://docs.google.com/forms/d/e/1FAIpQLSdxz_zaYyigsjkLCC8wGLPaeUKaAz55Vv54ugwZQSHMgUvjbA/formResponse" method="POST" target="_blank">
   <h3>請留下聯絡資料</h3>
   <label>姓名：
-    <input type="text" id="userName" required>
+    <input type="text" name="entry.464998322" id="userName" required>
   </label><br>
-  <label>聯絡方式（Line / FB / Email / 電話）：
-    <input type="text" id="userContact" required>
+  <label>聯絡方式（FB / IG皆可）：
+    <input type="text" name="entry.940145478" id="userContact" required>
   </label><br>
+  <input type="hidden" name="entry.1309453478" id="cartSummary">
   <button type="submit">📩 送出購物單</button>
-</form>
+  </form>
 
 
   <p style="margin-top: 1rem;">
