@@ -29,6 +29,58 @@
         <section class="products">
             <h2>愛心義賣商品</h2>
             <div class="product-list">
+                <div class="product-card" onclick="openModal('pitaya')">
+                    <div class="card-badge">❤️ 義賣利潤100元籌醫療費</div>
+                    <img src="images/紅龍果.jpg" alt="紅龍果">
+                    <h3>玉井山區完熟紅龍果</h3>
+
+                    <div class="highlight-box">
+                        <p>🔥 <strong>當日現採直送</strong>｜草生栽培｜螞蟻認證甜度</p>
+                    </div>
+                    <p>✅ 紅肉多汁，清香不膩<br>
+                        ✅ 低熱量高纖維健康首選<br>
+                        ✅ 週週新鮮採收，下單即寄</p>
+                    <div class="price-box">
+                        <span class="price">5斤裝 NT$499</span>
+                        <span class="price-remark">(含運費)</span>
+                        <span class="price-big">10斤裝 NT$899</span>
+                    </div>
+                    <p class="small-text">※ 照片為10斤裝實際大小</p>
+                    <button onclick="openFlavorSelector('玉井山區完熟紅龍果(含運費)', ['五斤裝・NT$499','10斤裝・NT$899'])">
+                        🛒 加入購物車
+                    </button>
+                </div>
+
+                <div class="product-card" onclick="openModal('passionfruit')">
+                    <div class="urgent-tag">🐾 急籌醫療費｜每箱助浪浪100元</div>
+                    <img src="images/百香果2.jpg" alt="百香果">
+                    <h3>埔里黃金百香果 <span class="emoji">😋</span></h3>
+                    <div class="highlight">
+                        <p>✨ <strong>當日現採直送</strong>｜果肉爆汁｜香氣炸裂</p>
+                    </div>
+                    <ul class="features">
+                        <li>✅ 濃郁鮮黃湯汁，籽小肉厚</li>
+                        <li>✅ 酸甜黃金比例，香氣誘人</li>
+                        <li>✅ 埔里產地直送，隔日到貨</li>
+                    </ul>
+                    <!-- 價格區塊 -->
+                    <div class="price-box">
+                        <div class="price-option">
+                            <span class="weight">5斤裝</span>
+                            <span class="price">NT$488</span>
+                        </div>
+                        <div class="price-option best">
+                            <span class="weight">10斤裝</span>
+                            <span class="price">NT$888</span>
+                            <span class="tag">最划算</span>
+                        </div>
+                    </div>
+                    <p class="tip">📦 當日採收·冷藏配送｜埔里肥沃火山土孕育</p>
+                    <button onclick="openFlavorSelector('埔里黃金百香果', ['五斤裝・NT$488','10斤裝・NT$888'])">
+                        🛒 加入購物車
+                    </button>
+                </div>
+                
                 <div class="product-card" onclick="openModal('MeleSugar')">
                     <img src="images/cat4.jpg" alt="蜂梨糖">
                     <h3>蜂梨糖</h3>
@@ -271,7 +323,6 @@
         <section id="contact">
             <h2>關於我們</h2>
             <p>📧 聯絡信箱：<a href="liumiai0704@gmail.com">liumiai0704@gmail.com</a></p>
-            <!-- <p>💖 捐款資訊：郵局代碼700 帳號：1234567 戶名：****</p> -->
             <p>🌈 我的FB：<a href="https://www.facebook.com/sara.liu.70621">SaraLiu</a></p>
         </section>
     </main>
@@ -282,6 +333,53 @@
 
     <!-- ✅ Modal 彈窗區塊 -->
 
+<div id="pitaya" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('pitaya')">&times;</span>
+            <h2>紅龍果</h2>
+            <img src="images/紅龍果2.jpg" alt="紅龍果">
+            <p>❤️來自台灣南部玉井山區優質果園的紅肉火龍果👍<br>
+                小農自產自銷🤩<br>
+                全程草生栽培，堅持完熟採收，果肉清香甜😋<br>
+                吃完還會再回購😋<br>
+                連螞蟻都搶吃的水果😋<br>
+                低熱量高纖維水果😋<br>
+                每週陸續採收出貨👍
+                當天採收馬上寄出😍<br>
+                喜歡的朋友請私訊留下詳細的收件資料🙏
+            </p>
+        </div>
+    </div>
+
+    <div id="passionfruit" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('passionfruit')">&times;</span>
+            <h2>埔里黃金百香果</h2>
+            <img src="images/百香果.jpg" alt="百香果">
+            <p>百香果：
+                果籽小、濃郁鮮黃湯汁👍<br>
+                果汁率高，果果甜酸香中果肉粒粒飽滿 ，香氣誘人👍<br>
+                南投埔里是百香果的故鄉，
+                百香果因果香奇異而聞名🎉<br>
+                南投埔里是種植百香果栽種最密集主要的產區👍<br>
+                其土壤肥沃 氣候溫潤，
+                冬季不嚴寒，
+                夏季不酷熱，
+                雨量豐富雲霧多🎉<br>
+                百香果吸收了大自然營養分子使其酸甜度更佳、芳香酸甜<br>
+                營養價值極高😋<br>
+
+                👉其實百香果要看的不是甜度，
+                因為傳統百香果甜度都很高，
+                所以主要是看酸度<br>
+                如果太酸的話，吃起來感覺就不甜<br>
+                百香果<br>
+                第一、遇冷會變酸（所以秋冬比較酸）<br>
+                第二、晃動太多會變酸（所以要用吊網）
+            </p>
+        </div>
+    </div>
+    
     <div id="MeleSugar" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal('MeleSugar')">&times;</span>
