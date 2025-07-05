@@ -114,6 +114,22 @@ footer {
   max-width: 500px;
   box-shadow: 0 5px 15px rgba(0,0,0,0.3);
   text-align: center;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+    max-height: 80vh; /* 新增 */
+  overflow-y: auto; /* 新增 */
+  
+  /* 更美觀的滾動條 */
+  scrollbar-width: thin;
+  scrollbar-color: #ff7b7b #f5f5f5;
+}
+
+.modal-content::-webkit-scrollbar {
+  width: 6px;
+}
+.modal-content::-webkit-scrollbar-thumb {
+  background: #ff7b7b;
+  border-radius: 3px;
 }
 
 .modal-content img {
